@@ -1,0 +1,149 @@
+:root {
+    --raindropSize: 50px;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+#game-area {
+    flex: 0 1 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#rain-area {
+    flex: 2 0 auto;
+    position: relative;
+    z-index: 20;
+}
+
+#start, .level-up {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+.invisible {
+    display: none;
+}
+
+.raindrop {
+    height: var(--raindropSize);
+    width: var(--raindropSize);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    animation: 1s linear forwards raindrop_fall;
+    background-color: #e8ff18;
+}
+
+@keyframes raindrop_fall {
+    from {
+        top: 0;
+    }
+    to {
+        top: calc(100% + var(--raindropSize));
+    }
+}
+
+#wave {
+    height: 60px;
+    width: 100%;
+    flex: 0 2 auto;
+}
+
+aside {
+    flex: 1 0 auto;
+    width: 242px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(ornament.png);
+}
+
+/* wave animation */
+
+.wave-wrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.wave-wrapper-inner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    background-image: linear-gradient(to top, #00782b 20%, #c73838 80%);
+}
+.bg-top {
+    z-index: 15;
+    opacity: 0.5;
+}
+.bg-middle {
+    z-index: 10;
+    opacity: 0.75;
+}
+.bg-bottom {
+    z-index: 5;
+}
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.wave-top {
+    background-size: 50% 100px;
+    background-image:url('http://front-end-noobs.com/jecko/img/wave-top.png');
+}
+
+.wave-middle {
+    background-size: 50% 120px;
+    background-image:  url('http://front-end-noobs.com/jecko/img/wave-mid.png');
+
+}
+.wave-bottom {
+    background-size: 50% 100px;
+    background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png');
+}
+
+.wave-animation .wave-top {
+    animation: move-wave 3s;
+    -webkit-animation: move-wave 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.wave-animation .wave-middle {
+    animation: move_wave 10s linear infinite;
+}
+.wave-animation .wave-bottom {
+    animation: move_wave 15s linear infinite;
+}
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55);
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
+}

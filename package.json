@@ -1,0 +1,19 @@
+{
+  "name": "raindrop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Citrinin/raindrop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Citrinin/raindrop/issues"
+  },
+  "homepage": "https://github.com/Citrinin/raindrop#readme"
+}
